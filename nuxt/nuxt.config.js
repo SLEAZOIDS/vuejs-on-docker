@@ -3,6 +3,9 @@ module.exports = {
   ** Headers of the page
   */
   head: {
+    script: [
+      { src: "/sample.js" }
+    ],
     title: 'nuxt',
     meta: [
       { charset: 'utf-8' },
@@ -10,7 +13,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: "/sample.css" }
     ]
   },
   /*
@@ -36,4 +40,3 @@ module.exports = {
     }
   }
 }
-

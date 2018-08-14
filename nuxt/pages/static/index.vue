@@ -1,5 +1,11 @@
 <template>
-  <div class="container">stacic test page</div>
+  <div>
+    <div class="container">stacic test page</div>
+    <div class="block">
+      <h4>Nuxt.js + Element？</h4>
+      <el-rate v-model="value" :colors="['#2F3D4D', '#64B486', '#4B7C6E']"></el-rate>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -12,6 +18,11 @@ export default {
       link: [
         { rel: 'stylesheet', href: "/sample.css" }
       ]
+    }
+  },
+  data () {
+    return {
+      value: null
     }
   }
 }

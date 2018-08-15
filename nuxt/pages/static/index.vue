@@ -5,6 +5,9 @@
       <h4>Nuxt.js + Element？</h4>
       <el-rate v-model="value" :colors="['#2F3D4D', '#64B486', '#4B7C6E']"></el-rate>
     </div>
+    <no-ssr>
+      <vue-typer text='Hello World! I was registered locally!'></vue-typer>
+    </no-ssr>
   </div>
 </template>
 

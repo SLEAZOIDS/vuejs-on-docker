@@ -25,7 +25,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    vendor: ['element-ui'],
     /*
     ** Run ESLint on save
     */
@@ -40,8 +39,13 @@ module.exports = {
       }
     }
   },
+  vendor: [
+    'element-ui',
+    'vue-typer'
+  ],
   plugins: [
-    '~plugins/element-ui'
+    '~plugins/element-ui',
+    { src: '~plugins/vue-typer.js', ssr: false }
   ],
   css: [
     'element-ui/lib/theme-chalk/index.css'

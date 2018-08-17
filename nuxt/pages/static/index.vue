@@ -8,11 +8,17 @@
     <no-ssr>
       <vue-typer text='Hello World! I was registered locally!'></vue-typer>
     </no-ssr>
+    <bounce/>
   </div>
 </template>
 
 <script>
+import Bounce from '~/components/Bounce.vue'
+
 export default {
+  components: {
+    Bounce
+  },
   head () {
     return {
       script: [

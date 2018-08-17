@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button @click="show = !show">Toggle show</button>
     <transition name="bounce">
       <p v-if="show">{{ view_message }}</p>
     </transition>
     <button v-on:click="timer">imitator</button>
+    <button @click="show = !show">Toggle show</button>
   </div>
 </template>
 
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     discript: function () {
-      var array = this.message.split('')
+      var array = [...this.message]
       if(typeof array[this.index] ==='undefined') {
         this.view_message = ''
         this.index = 0

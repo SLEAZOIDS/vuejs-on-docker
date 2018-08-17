@@ -2,8 +2,9 @@
   <div>
     <button @click="show = !show">Toggle show</button>
     <transition name="bounce">
-      <p v-if="show">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris facilisis enim libero, at lacinia diam fermentum id. Pellentesque habitant morbi tristique senectus et netus.</p>
+      <p v-if="show">{{ view_message }}</p>
     </transition>
+    <button v-on:click="timer">imitator</button>
   </div>
 </template>
 
@@ -11,7 +12,26 @@
 export default {
   data() {
     return {
-      show: true
+      show: true,
+      message: 'Hello World! I was registered locally!',
+      view_message: '',
+      index: 0
+    }
+  },
+  methods: {
+    discript: function () {
+      var array = this.message.split('')
+      if(typeof array[this.index] ==='undefined') {
+        this.view_message = ''
+        this.index = 0
+      }
+      this.view_message += array[this.index]
+      this.index++
+    },
+
+    timer: function() {
+      let self = this;
+      setInterval(function() {self.discript()}, 100)
     }
   }
 }

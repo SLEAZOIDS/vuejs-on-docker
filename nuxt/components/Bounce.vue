@@ -1,10 +1,7 @@
 <template>
   <div>
-    <transition name="bounce">
-      <p v-if="show">{{ view_message }}</p>
-    </transition>
-    <button v-on:click="timer">imitator</button>
-    <button @click="show = !show">Toggle show</button>
+    <p>{{ view_message }}</p>
+    <button v-on:click="start">start</button>
   </div>
 </template>
 
@@ -12,49 +9,45 @@
 export default {
   data() {
     return {
-      show: true,
-      message: 'Hello World! I was registered locally!',
+      message: 'Hello World!',
       view_message: '',
-      index: 0
     }
   },
   methods: {
     discript: function () {
-      var array = [...this.message]
-      if(typeof array[this.index] ==='undefined') {
-        this.view_message = ''
-        this.index = 0
+      var index = Math.floor(Math.random() * this.message_array.length)
+
+      var character = this.message_array[index]
+      this.message_array.splice(index, 1);
+
+      this.view_message = this.view_message.slice(0, character.index) + character.value
+        + this.view_message.slice(character.index + 1, this.view_message.length);
+
+      if(this.message_array.length <= 0) {
+        this.stop()
       }
-      this.view_message += array[this.index]
-      this.index++
     },
 
-    timer: function() {
-      let self = this;
-      setInterval(function() {self.discript()}, 100)
-    }
+    start: function() {
+      this.message_array = [...this.message]
+      this.message_array = this.message_array.map(function(value, index) {
+          return {value:value, index:index};
+      });
+
+      this.view_message = ''
+      for (var i = 0; i < this.message.length; i++) {
+        this.view_message += ' '
+      }
+      this.index = 0
+      let self = this
+      this.timerObj = setInterval(function() {
+        self.discript()
+      }, 50)
+    },
+
+    stop: function() {
+      clearInterval(this.timerObj);
+    },
   }
 }
 </script>
-
-<style>
-
-.bounce-enter-active {
-  animation: bounce-in .5s;
-}
-.bounce-leave-active {
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-</style>

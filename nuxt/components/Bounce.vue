@@ -9,10 +9,10 @@
 export default {
   data() {
     return {
-      message: 'Hello World!',
       view_message: '',
     }
   },
+  props: ['message'],
   methods: {
     discript: function () {
       var index = Math.floor(Math.random() * this.message_array.length)
@@ -29,6 +29,9 @@ export default {
     },
 
     start: function() {
+      if (!this.message) {
+        return
+      }
       this.message_array = [...this.message]
       this.message_array = this.message_array.map(function(value, index) {
           return {value:value, index:index};

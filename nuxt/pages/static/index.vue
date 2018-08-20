@@ -8,7 +8,7 @@
     <no-ssr>
       <vue-typer text='Hello World! I was registered locally!'></vue-typer>
     </no-ssr>
-    <bounce/>
+    <bounce message="Hello world!"/>
   </div>
 </template>
 

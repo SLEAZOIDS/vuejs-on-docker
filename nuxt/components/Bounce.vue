@@ -1,7 +1,6 @@
 <template>
   <div>
     <p>{{ view_message }}</p>
-    <button v-on:click="start">start</button>
   </div>
 </template>
 
@@ -51,6 +50,9 @@ export default {
     stop: function() {
       clearInterval(this.timerObj);
     },
-  }
+  },
+  mounted() {
+    this.start();
+  },
 }
 </script>

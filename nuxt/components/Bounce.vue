@@ -13,6 +13,17 @@ export default {
   },
   props: ['message'],
   methods: {
+    init: function() {
+      this.message_array = [...this.message].map(function(value, index) {
+          return {value:value, index:index};
+      });
+      this.view_message = ''
+      for (var i = 0; i < this.message.length; i++) {
+        this.view_message += ' '
+      }
+      this.index = 0
+    },
+
     discript: function () {
       var index = Math.floor(Math.random() * this.message_array.length)
 
@@ -31,24 +42,15 @@ export default {
       if (!this.message) {
         return
       }
-      this.message_array = [...this.message]
-      this.message_array = this.message_array.map(function(value, index) {
-          return {value:value, index:index};
-      });
-
-      this.view_message = ''
-      for (var i = 0; i < this.message.length; i++) {
-        this.view_message += ' '
-      }
-      this.index = 0
+      this.init()
       let self = this
-      this.timerObj = setInterval(function() {
+      this.timer = setInterval(function() {
         self.discript()
       }, 50)
     },
 
     stop: function() {
-      clearInterval(this.timerObj);
+      clearInterval(this.timer);
     },
   },
   mounted() {

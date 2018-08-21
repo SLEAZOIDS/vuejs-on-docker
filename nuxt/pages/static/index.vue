@@ -8,16 +8,16 @@
     <no-ssr>
       <vue-typer text='Hello World! I was registered locally!'></vue-typer>
     </no-ssr>
-    <bounce message="Hello world!"/>
+    <vue-chara-builder message="Hello world!"/>
   </div>
 </template>
 
 <script>
-import Bounce from '~/components/Bounce.vue'
+import vueCharaBuilder from '~/components/vue-chara-builder.vue'
 
 export default {
   components: {
-    Bounce
+    vueCharaBuilder
   },
   head () {
     return {

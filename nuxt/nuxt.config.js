@@ -41,11 +41,13 @@ module.exports = {
   },
   vendor: [
     'element-ui',
-    'vue-typer'
+    'vue-typer',
+    'vue-chara-builder',
   ],
   plugins: [
     '~plugins/element-ui',
-    { src: '~plugins/vue-typer.js', ssr: false }
+    { src: '~plugins/vue-typer.js', ssr: false },
+    { src: '~plugins/vue-chara-builder.js', ssr: false },
   ],
   css: [
     'element-ui/lib/theme-chalk/index.css'
